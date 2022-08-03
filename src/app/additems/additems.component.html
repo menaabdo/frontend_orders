@@ -1,0 +1,74 @@
+<div id="mdlNew" class="" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class=" text-center">
+                <h6 class="modal-title ">Add new item</h6>
+              
+               
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="ti-close"></i>
+                </button> -->
+            </div>
+            <div id="frmItem">
+                <form class="p-5" (ngSubmit)='add()' #f='ngForm'>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group mb-3">
+                                <label class="form-label">Item Name</label>
+                                <input type="text" required class="form-control" name="name" value="{{name}}" [(ngModel)]=name />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group mb-3">
+                                <label class="form-label">Price</label>
+                                <input type="text" required name='price' class="form-control" [(ngModel)]=price />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label>Picture</label>
+                                <input type="file"   class="form-control" (change)='getimg($event)' />
+                            </div>
+                        </div>
+                    </div>
+                    <div class='row d-flex justify-content-end'>
+                        <div class='col-3 form-group'>
+                    <a (click)='plus()' class="btn mt-2 btn-success add-size">Add</a>
+                </div>  
+            </div>       
+                    <div  *ngFor='let ele of sizearr ; index as i ' >
+                        <div class="row" for="sizes"  id={{i}}>
+                        <div class="col-5">
+                            <div class="form-group">
+                                <label>Size Name</label>
+                                <input type="text" required class="form-control" name='size_name' value={{sizevaluearr[i]}}  (change)='getval($event,i)'/>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label>Size Price</label>
+                                <input type="text" required name="sizeprice{{i}}"  class="form-control" value={{pricevaluearr[i]}}   (change)='getsize($event,i)'/>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="form-group" style="margin-top: 20%;">
+                                 <a (click)='remove(i)' class="btn btn-success remove-size btn-danger">Remove</a>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="modal-footer text-center m-3 row">
+                    
+                    <button [disabled]='f.invalid' type="submit" id="btnSaveHours" class="btn btn-primary" title="Save">Save</button>
+                </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
