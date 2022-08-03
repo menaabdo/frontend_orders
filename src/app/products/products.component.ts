@@ -25,7 +25,7 @@ allproducts(){
     })
   )
    
-  .subscribe((res)=>{this.products=res.allproducts;console.log(this.products)},(err)=>{console.log(err)})
+  .subscribe((res)=>{this.response=res; this.products=this.response;console.log(this.products)},(err)=>{console.log(err)})
 }
 addproduct(product:Product){
   this.myserve.add_to_cart(product)
