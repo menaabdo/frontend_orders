@@ -12,6 +12,12 @@ export class MyserviceService {
   counter=0
   sum=0
     constructor(private httpclient: HttpClient) { }
+    getallproducts():Observable<{allproducts:Product[]}>{
+      ///////////use observe to 
+      return this.httpclient.get<{allproducts:Product[]}>(`${environment.apiURL}getproducts`)
+    
+    }
+    ///////////////////////////////////////////
     additem(data:any){
       
       return this.httpclient.post(`${environment.apiURL}add`,data)
@@ -19,10 +25,7 @@ export class MyserviceService {
     getallitems(){
       return this.httpclient.get(`${environment.apiURL}getitems`)
     }
-    getallproducts(){
-      return this.httpclient.get<{products:Product[]}>(`${environment.apiURL}getproducts`)
     
-    }
     deleteitem(id:number){
       return this.httpclient.post(`${environment.apiURL}delete`,{id})
       
