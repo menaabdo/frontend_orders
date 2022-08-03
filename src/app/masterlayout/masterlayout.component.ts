@@ -41,9 +41,9 @@ export class MasterlayoutComponent implements OnInit {
    console.log(this.myserve.sum)
   }
  
-  del(price:number,index:number){
+  del(price:number,index:number,rep:number){
 this.myserve.mycartproduct.splice(index,1)
-this.myserve.sum-=price 
+this.myserve.sum-=price*rep 
 
   }
   mycalcaluation(){

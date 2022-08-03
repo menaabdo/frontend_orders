@@ -27,10 +27,12 @@ export class MyserviceService {
       
     }
     add_to_cart(product:Product){
-      // if(this.mycartproduct[this.mycartproduct.indexOf(product)])
-          
+      
+       if(this.mycartproduct[this.mycartproduct.indexOf(product)])
+       this.mycartproduct[this.mycartproduct.indexOf(product)].rep++
+       else{product.rep=1
       this.mycartproduct.push(product)
-     
+    }
   
     }
     cal_total(price:number){

@@ -148,11 +148,11 @@
                                             </div>
                                             <div class="flex-grow-1 ">
                                                 <p class="mb-0  px-2 line-height-20 d-flex justify-content-between">
-                                                   {{product.size_name}}{{sum}}
+                                                   {{product.size_name}}
                                                      
-                                                     <fa-icon class="close-icon" [icon]="icon" (click)='del(product.size_price,i)'></fa-icon>
+                                                     <fa-icon class="close-icon" [icon]="icon" (click)='del(product.size_price,i,product.rep)'></fa-icon>
                                                 </p>
-                                                <span class="text-muted small px-2" > {{product.size_price}}</span>
+                                                <span class="text-muted small px-2" >{{product.rep}} X ${{product.size_price}}</span>
                                             </div>
                                         </a>
                                         

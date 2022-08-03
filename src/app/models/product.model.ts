@@ -5,5 +5,6 @@ export interface Product{
     size_name:string
     size_price:number
     belongstoitems:Item
+    rep:number
     
 }
