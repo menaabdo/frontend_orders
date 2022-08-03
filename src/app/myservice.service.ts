@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Product } from '../app/models/product.model';
-
+import { Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class MyserviceService {
   mycartproduct:Product[]=[]
-  flag=0
+  counter=0
   sum=0
     constructor(private httpclient: HttpClient) { }
     additem(data:any){
@@ -19,7 +20,7 @@ export class MyserviceService {
       return this.httpclient.get(`${environment.apiURL}getitems`)
     }
     getallproducts(){
-      return this.httpclient.get(`${environment.apiURL}getproducts`)
+      return this.httpclient.get<{products:Product[]}>(`${environment.apiURL}getproducts`)
     
     }
     deleteitem(id:number){
@@ -29,9 +30,12 @@ export class MyserviceService {
     add_to_cart(product:Product){
       
        if(this.mycartproduct[this.mycartproduct.indexOf(product)])
-       this.mycartproduct[this.mycartproduct.indexOf(product)].rep++
+      { this.mycartproduct[this.mycartproduct.indexOf(product)].rep++
+        this.counter++
+       }
        else{product.rep=1
       this.mycartproduct.push(product)
+      this.counter++
     }
   
     }

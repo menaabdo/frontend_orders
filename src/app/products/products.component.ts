@@ -22,7 +22,7 @@ allproducts(){
 addproduct(product:Product){
   this.myserve.add_to_cart(product)
   this.myserve.cal_total(product.size_price)
-  this.myserve.flag++
+ 
   
  
 }

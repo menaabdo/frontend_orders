@@ -5,6 +5,7 @@ import { MyserviceService } from '../myservice.service';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 
+
 @Component({
   selector: 'app-masterlayout',
   templateUrl: './masterlayout.component.html',
@@ -13,6 +14,7 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 export class MasterlayoutComponent implements OnInit {
   icon = faXmark;
   sum!:number
+  flag!:number
   products!:Product[]
   customer_name!:string
   customer_phone!:string
@@ -22,7 +24,7 @@ export class MasterlayoutComponent implements OnInit {
     
      this.cart_products()
     
-    //  this.mycounter();
+   this.flag=this.myserve.counter
     this.mycalcaluation()
      this.route.navigateByUrl('home')
 
@@ -44,10 +46,11 @@ export class MasterlayoutComponent implements OnInit {
   del(price:number,index:number,rep:number){
 this.myserve.mycartproduct.splice(index,1)
 this.myserve.sum-=price*rep 
+this.myserve.counter--
 
   }
   mycalcaluation(){
-      setInterval(()=>{this.sum=this.myserve.sum
+      setInterval(()=>{this.sum=this.myserve.sum;this.flag=this.myserve.counter
     },200)
   }
   placeorder(products:Product[]){

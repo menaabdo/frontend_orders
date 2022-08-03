@@ -129,13 +129,13 @@
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a (click)="myFunction()" class="dropbtn">
-                             <img   src='../../assets/media/image/cart.png' class="dropdown-toggle"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <sup *ngIf='products.length'>{{products.length}} </sup> 
+                             <img   src='../../assets/media/image/cart.png' class="dropdown-toggle"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <sup *ngIf='products.length'>{{flag}} </sup> 
                             </a>
                             <div class='d-flex justify-content-left'>
                             <div id="myDropdown" class="dropdown-content ">
                                 <div class=" dropdown-item border-bottom px-4 py-3 text-center d-flex justify-content-between align-items-center">
                                     <h5 class="mb-0">Cart</h5>
-                                    <small  class="opacity-7">{{products?.length}} products</small>
+                                    <small  class="opacity-7">{{flag}} products</small>
                                 </div>
                                 <div class="dropdown-scroll"  >
                                     <div class="list-group list-group-flush" *ngFor='let product of products ; index as i'>
